@@ -1,19 +1,17 @@
-import React from 'react'
-import { Button } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
-import { useState,useEffect } from 'react'
-import "../AttemptComp.css"
+import React from "react";
+import { Button } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import "../AttemptComp.css";
 
 const JoinCompScreen = (props) => {
-
   const [QuestionList, setQuestionList] = useState([]);
   const [UserList, setUserList] = useState([]);
   const [AttempetedList, setAttemptedList] = useState([]);
   const [Expiry, setExpiry] = useState([]);
   const GetCompQuizData = () => {
-    
-    const url = `http://backend.healthynomad:8080/api/compQuizzes/${props.id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${props.id}`;
     axios
       .get(url)
       .then((response) => {
@@ -36,7 +34,6 @@ const JoinCompScreen = (props) => {
   };
 
   const handleAttempt = async (e) => {
-
     navigator.getMedia =
       navigator.getUserMedia || // use the proper vendor prefix
       navigator.webkitGetUserMedia ||
@@ -49,16 +46,16 @@ const JoinCompScreen = (props) => {
         // webcam is available
       },
       function () {
-        console.log("Camera not available")
+        console.log("Camera not available");
         alert("Quiz cannot be attempted without Camera");
-       return;
+        return;
       }
     );
     e.preventDefault();
 
     const expTime = Expiry;
-    const currTime = (new Date()).toISOString();
-    if(expTime < currTime) {
+    const currTime = new Date().toISOString();
+    if (expTime < currTime) {
       alert("Quiz has already expired!");
       window.location.href = "/quiz/attempt_quiz";
     }
@@ -67,25 +64,24 @@ const JoinCompScreen = (props) => {
     let uID = localStorage.getItem("userid");
     let attempted = [];
 
-    if(UserList.length !== 0) {
+    if (UserList.length !== 0) {
       UserList.map((user, index) => {
-        if(user._id === uID) {
-          if(AttempetedList[index] == true) {
+        if (user._id === uID) {
+          if (AttempetedList[index] == true) {
             alert("Quiz already attempted!");
             window.location.href = "/quiz/attempt_quiz";
           }
           //console.log(user);
           //console.log(uID);
           attempted.push(true);
-        }
-        else {
+        } else {
           attempted.push(AttempetedList[index]);
         }
-      })
+      });
     }
 
     try {
-      const url = `http://backend.healthynomad:8080/api/compQuizzes/${props.id}`;
+      const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${props.id}`;
       const Credentials = { attempted };
       const { data: res } = await axios.patch(url, Credentials);
 
@@ -100,15 +96,13 @@ const JoinCompScreen = (props) => {
   useEffect(() => {
     GetCompQuizData();
   }, []);
- 
-  return (
-    <div className='join-screen'>
-        <h2>Join Quiz</h2>
-        <Button onClick={handleAttempt}>
-          Start Quiz
-        </Button>
-    </div>
-  )
-}
 
-export default JoinCompScreen
+  return (
+    <div className="join-screen">
+      <h2>Join Quiz</h2>
+      <Button onClick={handleAttempt}>Start Quiz</Button>
+    </div>
+  );
+};
+
+export default JoinCompScreen;

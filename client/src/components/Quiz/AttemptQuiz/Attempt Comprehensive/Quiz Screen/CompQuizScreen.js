@@ -18,18 +18,17 @@ const CompQuizScreen = (props) => {
     currQuestionIndex === props.QuestionList.length
   );
 
-  
   const totalMarks = props.QuestionList.length * props.quizDetails.correctScore;
-  
-  
 
-  const username = `${localStorage.getItem("firstName")} ${localStorage.getItem("lastName")}`
-  const userid = localStorage.getItem("userid")
-  const quizName = props.quizDetails.name 
-  const quizid = props.quizDetails._id
+  const username = `${localStorage.getItem("firstName")} ${localStorage.getItem(
+    "lastName"
+  )}`;
+  const userid = localStorage.getItem("userid");
+  const quizName = props.quizDetails.name;
+  const quizid = props.quizDetails._id;
   const remainingAttempts = 0;
   const Ref = useRef(null);
-  
+
   // The state for our timer
   const [timer, setTimer] = useState(
     `0${Math.floor(props.quizDetails.duration / 60)}:${
@@ -101,15 +100,12 @@ const CompQuizScreen = (props) => {
   const finishQuiz = () => {
     // console.log(answerDetails)
     setIsQuestionEnd(props.QuestionList.length);
-    
-  // window.location = "/comp_result";
 
-  
-
+    // window.location = "/comp_result";
   };
   const goToNextQuestion = () => {
-    console.log(answerDetails)
-    console.log(props.QuestionList)
+    console.log(answerDetails);
+    console.log(props.QuestionList);
     setCurrentQuestionIndex((prev) => {
       setCurrentQuestionIndex(prev + 1);
     });
@@ -125,7 +121,7 @@ const CompQuizScreen = (props) => {
   // const handleSubmit = async (e) => {
   //   // e.preventDefault();
   //   try {
-  //     const url = "http://backend.healthynomad:8080/api/CompResults";
+  //     const url = "http://backend.healthynomad.xyz:8080/api/CompResults";
   //     const Credentials = {
   //       username,
   //       userid,
@@ -157,37 +153,32 @@ const CompQuizScreen = (props) => {
   //   }
   // };
 
-
-  
-
   useEffect(() => {
-   console.log(props.quizDetails)
+    console.log(props.quizDetails);
     clearTimer(getDeadTime());
   }, []);
   const onClickReset = () => {
     clearTimer(getDeadTime());
-    
   };
 
   return (
     <div>
       {isQuestionEnd ? (
-        <CompResult 
-        username = {username}
-        userid = {userid}
-        quizName = {quizName}
-        quizid = {quizid}
-        remainingAttempts = {remainingAttempts}
-        totalMarks={totalMarks} 
-        answerDetails = {answerDetails}
-        QuestionList = {props.QuestionList}
+        <CompResult
+          username={username}
+          userid={userid}
+          quizName={quizName}
+          quizid={quizid}
+          remainingAttempts={remainingAttempts}
+          totalMarks={totalMarks}
+          answerDetails={answerDetails}
+          QuestionList={props.QuestionList}
         />
-        
       ) : (
         <>
           <div className="control">
             <Button variant="success" onClick={finishQuiz}>
-            Submit
+              Submit
             </Button>
           </div>
           <div className="card-header m-2">
@@ -197,12 +188,10 @@ const CompQuizScreen = (props) => {
           </div>
 
           <Question
-          
             question={props.QuestionList[currQuestionIndex]}
             totalQuestions={props.QuestionList.length}
             currentQuestion={currQuestionIndex + 1}
             setAnswerDetails={setAnswerDetails}
-         
           />
           <div
             style={{

@@ -37,7 +37,7 @@ const AddDescriptive = () => {
 
   const GetQuizId = () => {
     //here we will get all employee data
-    const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {
@@ -61,7 +61,7 @@ const AddDescriptive = () => {
 
   const GetQuestionData = () => {
     //here we will get all employee data
-    const url = "http://backend.healthynomad:8080/api/compQs";
+    const url = "http://backend.healthynomad.xyz:8080/api/compQs";
     axios
       .get(url)
       .then((response) => {
@@ -124,7 +124,7 @@ const AddDescriptive = () => {
   const handleAddQuestion = async (item) => {
     if (item) {
       try {
-        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
+        const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
         const Credentials = {
           addcompQs: item,
         };
@@ -150,7 +150,7 @@ const AddDescriptive = () => {
   const handleRemove = async (item) => {
     if (item) {
       try {
-        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
+        const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
         const Credentials = {
           delcompQs: item,
         };
@@ -176,7 +176,7 @@ const AddDescriptive = () => {
   };
 
   const GetExistingQuestions = () => {
-    const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {

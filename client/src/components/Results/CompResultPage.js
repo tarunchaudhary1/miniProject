@@ -28,7 +28,7 @@ const CompResult = (props) => {
     console.log("inside handleSubmit")
     // e.preventDefault();
     try {
-      const url = "http://backend.healthynomad:8080/api/compResults";
+      const url = "http://backend.healthynomad.xyz:8080/api/compResults";
       const Credentials = {
         username,
         userid,

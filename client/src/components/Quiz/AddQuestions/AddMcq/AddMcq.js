@@ -36,7 +36,7 @@ const AddMcq = (props) => {
 
   const GetQuizId = () => {
     //here we will get all employee data
-    const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/mcqQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {
@@ -60,7 +60,7 @@ const AddMcq = (props) => {
 
   const GetMcqQuestions = () => {
     //here we will get all employee data
-    const url = "http://backend.healthynomad:8080/api/mcqQs";
+    const url = "http://backend.healthynomad.xyz:8080/api/mcqQs";
     axios
       .get(url)
       .then((response) => {
@@ -127,7 +127,7 @@ const AddMcq = (props) => {
   const handleAddQuestion = async (item) => {
     if (item) {
       try {
-        const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${id}`;
+        const url = `http://backend.healthynomad.xyz:8080/api/mcqQuizzes/${id}`;
         // console.log(url);
         // console.log(item);
         const Credentials = {
@@ -153,7 +153,7 @@ const AddMcq = (props) => {
   const handleRemove = async (item) => {
     if (item) {
       try {
-        const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${id}`;
+        const url = `http://backend.healthynomad.xyz:8080/api/mcqQuizzes/${id}`;
         const Credentials = {
           delmcqQs: item,
         };
@@ -179,7 +179,7 @@ const AddMcq = (props) => {
   let wrong = <Badge bg="danger">X</Badge>;
 
   const GetExistingQuestions = () => {
-    const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/mcqQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {

@@ -17,7 +17,6 @@ import { useTheme } from "../../../../Context";
 
 const pageSize = 2;
 const MCQList = () => {
-
   const theme = Boolean(useTheme());
   const themeClassName = theme ? "tableContainer_dark" : "tableContainer";
   const backCol = theme ? "#444444" : "	#ffffff";
@@ -92,7 +91,7 @@ const MCQList = () => {
 
   const GetUserData = () => {
     //here we will get all employee data
-    const url = "http://backend.healthynomad:8080/api/mcqQs";
+    const url = "http://backend.healthynomad.xyz:8080/api/mcqQs";
     axios
       .get(url)
       .then((response) => {
@@ -105,8 +104,6 @@ const MCQList = () => {
         } else {
           setData(data);
           setSortedData(data);
-          
-         
         }
       })
       .catch((err) => {
@@ -117,7 +114,7 @@ const MCQList = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://backend.healthynomad:8080/api/mcqQs";
+      const url = "http://backend.healthynomad.xyz:8080/api/mcqQs";
       let Credentials;
       switch (optionCount) {
         case "2":
@@ -189,7 +186,7 @@ const MCQList = () => {
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
-      const url = `http://backend.healthynomad:8080/api/mcqQs/${id}`;
+      const url = `http://backend.healthynomad.xyz:8080/api/mcqQs/${id}`;
       const Credentials = {
         category,
         question,
@@ -217,7 +214,7 @@ const MCQList = () => {
   };
 
   const handleDelete = () => {
-    const url = `http://backend.healthynomad:8080/api/mcqQs/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/mcqQs/${id}`;
     axios
       .delete(url)
       .then((response) => {
@@ -239,53 +236,44 @@ const MCQList = () => {
   const handleCategorySelect = (e) => {
     setCateg(e);
     let sorted = [];
-    console.log(!Number(e))
-    if(Number(e)){
+    console.log(!Number(e));
+    if (Number(e)) {
       Data.map((element) => {
         console.log(typeof element.category, typeof category);
-        
+
         if (Number(element.category) === Number(e)) {
           sorted.push(element);
         }
       });
 
-      
       setSortedData((data) => {
         setSortedData(sorted);
-        
       });
+    } else {
+      setSortedData(Data);
     }
-    else{
-      setSortedData(Data)
-    }
-    
-    console.log(sorted);
 
-    
+    console.log(sorted);
   };
 
   const handleSearch = (e) => {
     let sorted = [];
-    
-    if(e.target.value.trim().length !== 0){
+
+    if (e.target.value.trim().length !== 0) {
       Data.map((element) => {
         if (element.question.includes(e.target.value)) {
           sorted.push(element);
         }
       });
 
-      
       setSortedData((data) => {
         setSortedData(sorted);
-        
       });
+    } else {
+      setSortedData(Data);
     }
-    else{
-      setSortedData(Data)
-    }
-    
   };
-  const [rowData,setRowData] = useState(<></>)
+  const [rowData, setRowData] = useState(<></>);
 
   let right = <Badge bg="success">&#x2713; </Badge>;
   let wrong = <Badge bg="danger">X</Badge>;
@@ -295,16 +283,9 @@ const MCQList = () => {
     GetUserData();
     setSortedData(Data);
     // console.log(Data.length)
-    
+
     // setRowData()
   }, []);
-
-
-
-
-
-
-  
 
   return (
     <div className={themeClassName}>
@@ -325,20 +306,26 @@ const MCQList = () => {
           </DropdownButton>
         </div>
         <div>
-        
-            <input
-               className={theme ? "search_bar_dark no-outline_dark" : "search_bar no-outline"}
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              onChange={handleSearch}
-            />
-          
+          <input
+            className={
+              theme
+                ? "search_bar_dark no-outline_dark"
+                : "search_bar no-outline"
+            }
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            onChange={handleSearch}
+          />
         </div>
       </div>
       {/* </div> */}
       <div className="container my-table">
-      <Table className={`table-hover table-bordered ${theme ? "table-dark table-striped" : "table table-striped"}`}>
+        <Table
+          className={`table-hover table-bordered ${
+            theme ? "table-dark table-striped" : "table table-striped"
+          }`}
+        >
           <thead>
             <tr>
               {/* <th>Question No.</th> */}
@@ -350,54 +337,66 @@ const MCQList = () => {
             </tr>
           </thead>
           <tbody>
-      {sortedData !== undefined &&
-        sortedData.map((item, index) => {
-          
-          return (
-            <tr key={item._id}>
-              {/* <td>{index + 1}</td> */}
-              <td>{item.category}</td>
-              <td>{item.question}</td>
+            {sortedData !== undefined &&
+              sortedData.map((item, index) => {
+                return (
+                  <tr key={item._id}>
+                    {/* <td>{index + 1}</td> */}
+                    <td>{item.category}</td>
+                    <td>{item.question}</td>
 
-              <td style={{ minWidth: 190 }}>
-                <button className={`${theme ? "button_dark_small" : "button_light_small"}`}
-                  size="sm"
-                  variant="primary"
-                  onClick={() => {
-                    handleViewShow(SetRowData(item));
-                  }}
-                >
-                  View
-                </button>
-                
-                <button className={`${theme ? "button_dark_small_warning" : "button_light_small_warning"}`}
-                  size="sm"
-                  variant="warning"
-                  onClick={() => {
-                    handleEditShow(SetRowData(item), setId(item._id));
-                  }}
-                >
-                  Edit
-                </button>
-                
-                <button className={`${theme ? "button_dark_small_danger" : "button_light_small_danger"}`}
-                  size="sm"
-                  variant="danger"
-                  onClick={() => {
-                    handleViewShow(
-                      SetRowData(item),
-                      setId(item._id),
-                      setDelete(true)
-                    );
-                  }}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          );
-        })}
-    </tbody>
+                    <td style={{ minWidth: 190 }}>
+                      <button
+                        className={`${
+                          theme ? "button_dark_small" : "button_light_small"
+                        }`}
+                        size="sm"
+                        variant="primary"
+                        onClick={() => {
+                          handleViewShow(SetRowData(item));
+                        }}
+                      >
+                        View
+                      </button>
+
+                      <button
+                        className={`${
+                          theme
+                            ? "button_dark_small_warning"
+                            : "button_light_small_warning"
+                        }`}
+                        size="sm"
+                        variant="warning"
+                        onClick={() => {
+                          handleEditShow(SetRowData(item), setId(item._id));
+                        }}
+                      >
+                        Edit
+                      </button>
+
+                      <button
+                        className={`${
+                          theme
+                            ? "button_dark_small_danger"
+                            : "button_light_small_danger"
+                        }`}
+                        size="sm"
+                        variant="danger"
+                        onClick={() => {
+                          handleViewShow(
+                            SetRowData(item),
+                            setId(item._id),
+                            setDelete(true)
+                          );
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
         </Table>
         {/* <Pagination
           postsPerPage={postsPerPage}
@@ -413,7 +412,10 @@ const MCQList = () => {
           backdrop="static"
           keyboard={false}
         >
-          <Modal.Header closeButton className={theme ? "custom_modal_dark" : "custom_modal"}>
+          <Modal.Header
+            closeButton
+            className={theme ? "custom_modal_dark" : "custom_modal"}
+          >
             <Modal.Title>View Question</Modal.Title>
           </Modal.Header>
           <Modal.Body className={theme ? "custom_modal_dark" : "custom_modal"}>
@@ -488,7 +490,11 @@ const MCQList = () => {
               {Delete && (
                 <button
                   type="submit"
-                  className={theme ? "button_dark_small_danger mt-2" : "button_light_small_danger mt-2"}
+                  className={
+                    theme
+                      ? "button_dark_small_danger mt-2"
+                      : "button_light_small_danger mt-2"
+                  }
                   onClick={handleDelete}
                 >
                   Delete Question
@@ -496,17 +502,25 @@ const MCQList = () => {
               )}
             </div>
           </Modal.Body>
-          {theme ? <Modal.Footer style={{ backgroundColor: "var(--bg_dark)" }}>
-            <button className={theme ? "button_dark" : "button_light"} onClick={hanldeViewClose}>
-              Close
-            </button>
-          </Modal.Footer>
-          :
-          <Modal.Footer style={{ backgroundColor: "var(--bg_light)" }}>
-            <button className={theme ? "button_dark" : "button_light"} onClick={hanldeViewClose}>
-              Close
-            </button>
-          </Modal.Footer>}
+          {theme ? (
+            <Modal.Footer style={{ backgroundColor: "var(--bg_dark)" }}>
+              <button
+                className={theme ? "button_dark" : "button_light"}
+                onClick={hanldeViewClose}
+              >
+                Close
+              </button>
+            </Modal.Footer>
+          ) : (
+            <Modal.Footer style={{ backgroundColor: "var(--bg_light)" }}>
+              <button
+                className={theme ? "button_dark" : "button_light"}
+                onClick={hanldeViewClose}
+              >
+                Close
+              </button>
+            </Modal.Footer>
+          )}
         </Modal>
       </div>
       {/* Modal for submit data to database */}
@@ -591,24 +605,36 @@ const MCQList = () => {
               {error && <div className="error_msgs">{error}</div>} <br />
               <button
                 type="submit"
-                className={theme ? "button_dark_small_success" : "button_light_small_success"}
+                className={
+                  theme
+                    ? "button_dark_small_success"
+                    : "button_light_small_success"
+                }
                 onClick={handleSubmit}
               >
                 Add Question
               </button>
             </div>
           </Modal.Body>
-          {theme ? <Modal.Footer style={{ backgroundColor: "var(--bg_dark)" }}>
-            <button className={theme ? "button_dark" : "button_light"} onClick={hanldePostClose}>
-              Close
-            </button>
-          </Modal.Footer>
-          :
-          <Modal.Footer style={{ backgroundColor: "var(--bg_light)" }}>
-            <button className={theme ? "button_dark" : "button_light"} onClick={hanldePostClose}>
-              Close
-            </button>
-          </Modal.Footer>}
+          {theme ? (
+            <Modal.Footer style={{ backgroundColor: "var(--bg_dark)" }}>
+              <button
+                className={theme ? "button_dark" : "button_light"}
+                onClick={hanldePostClose}
+              >
+                Close
+              </button>
+            </Modal.Footer>
+          ) : (
+            <Modal.Footer style={{ backgroundColor: "var(--bg_light)" }}>
+              <button
+                className={theme ? "button_dark" : "button_light"}
+                onClick={hanldePostClose}
+              >
+                Close
+              </button>
+            </Modal.Footer>
+          )}
         </Modal>
       </div>
       {/* Modal for Edit employee record */}
@@ -619,7 +645,10 @@ const MCQList = () => {
           backdrop="static"
           keyboard={false}
         >
-          <Modal.Header closeButton className={theme ? "custom_modal_dark" : "custom_modal"}>
+          <Modal.Header
+            closeButton
+            className={theme ? "custom_modal_dark" : "custom_modal"}
+          >
             <Modal.Title>Edit Question</Modal.Title>
           </Modal.Header>
           <Modal.Body className={theme ? "custom_modal_dark" : "custom_modal"}>
@@ -697,23 +726,36 @@ const MCQList = () => {
               {error && <div className="error_msgs">{error}</div>} <br />
               <button
                 type="submit"
-                className={theme ? "button_dark_small_warning" : "button_light_small_warning"}
+                className={
+                  theme
+                    ? "button_dark_small_warning"
+                    : "button_light_small_warning"
+                }
                 onClick={handleEdit}
               >
                 Edit Question
               </button>
             </div>
           </Modal.Body>
-          {theme ? <Modal.Footer style={{ backgroundColor: "var(--bg_dark)" }}>
-            <button className={theme ? "button_dark" : "button_light"} onClick={hanldeEditClose}>
-              Close
-            </button>
-          </Modal.Footer>:
-          <Modal.Footer style={{ backgroundColor: "var(--bg_light)" }}>
-            <button className={theme ? "button_dark" : "button_light"} onClick={hanldeEditClose}>
-              Close
-            </button>
-          </Modal.Footer>}
+          {theme ? (
+            <Modal.Footer style={{ backgroundColor: "var(--bg_dark)" }}>
+              <button
+                className={theme ? "button_dark" : "button_light"}
+                onClick={hanldeEditClose}
+              >
+                Close
+              </button>
+            </Modal.Footer>
+          ) : (
+            <Modal.Footer style={{ backgroundColor: "var(--bg_light)" }}>
+              <button
+                className={theme ? "button_dark" : "button_light"}
+                onClick={hanldeEditClose}
+              >
+                Close
+              </button>
+            </Modal.Footer>
+          )}
         </Modal>
       </div>
     </div>

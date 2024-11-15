@@ -86,12 +86,12 @@ const McqList = () => {
   const theme = useTheme();
 
   const GetMcqQuizData = () => {
-    const url = "http://backend.healthynomad:8080/api/mcqQuizzes";
+    const url = "http://backend.healthynomad.xyz:8080/api/mcqQuizzes";
 
     //let _email = localStorage.getItem("email");
     let uID = localStorage.getItem("userid");
 
-    // const user_url = `http://backend.healthynomad:8080/api/users/${_email}`;
+    // const user_url = `http://backend.healthynomad.xyz:8080/api/users/${_email}`;
     // axios
     //   .get(user_url)
     //   .then((response) => {
@@ -209,11 +209,12 @@ const McqList = () => {
     let sorted = [];
 
     if (e.target.value.trim().length !== 0) {
-      Data && Data.map((element) => {
-        if (element.name.includes(e.target.value)) {
-          sorted.push(element);
-        }
-      });
+      Data &&
+        Data.map((element) => {
+          if (element.name.includes(e.target.value)) {
+            sorted.push(element);
+          }
+        });
 
       setSortedData((data) => {
         setSortedData(sorted);
@@ -225,11 +226,12 @@ const McqList = () => {
 
   function locTime(expTime) {
     var d = new Date(expTime);
-    const locTime = d.toLocaleDateString("en-GB") + " | " + d.toLocaleTimeString();
+    const locTime =
+      d.toLocaleDateString("en-GB") + " | " + d.toLocaleTimeString();
     // console.log(locTime);
     return locTime;
   }
-  
+
   useEffect(() => {
     setComponent(null);
     GetMcqQuizData();
@@ -244,7 +246,7 @@ const McqList = () => {
         <h5 className="text-center">MCQ Quiz List</h5>
         {sortedData.length > 0 && (
           // console.log("mcq", sortedData.length),
-          
+
           <div className="container my-table">
             <div className="mt-5 mb-4 display-row">
               <div className="m-1">
@@ -260,7 +262,11 @@ const McqList = () => {
               </div>
             </div>
 
-            <Table className={`table-hover table-bordered ${theme ? "table-dark table-striped" : "table table-striped"}`}>
+            <Table
+              className={`table-hover table-bordered ${
+                theme ? "table-dark table-striped" : "table table-striped"
+              }`}
+            >
               <thead>
                 <tr>
                   {/* <th colSpan={1}>S.No.</th> */}
@@ -299,7 +305,15 @@ const McqList = () => {
                               to={`/quiz/attempt_quiz/attempt_mcq/${item._id}`}
                               className=""
                             >
-                              <button className={theme ? "button_dark_small" : "button_light_small"}>Attempt</button>
+                              <button
+                                className={
+                                  theme
+                                    ? "button_dark_small"
+                                    : "button_light_small"
+                                }
+                              >
+                                Attempt
+                              </button>
                             </Link>
                           </td>
                         </tr>

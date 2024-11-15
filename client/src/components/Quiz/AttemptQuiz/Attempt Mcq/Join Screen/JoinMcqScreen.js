@@ -21,7 +21,7 @@ const JoinMcqScreen = (props) => {
   document.body.style = "background: " + backCol + ";" + "color: " + textCol;
 
   const GetMcqQuizData = () => {
-    const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${props.id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/mcqQuizzes/${props.id}`;
     axios
       .get(url)
       .then((response) => {
@@ -91,7 +91,7 @@ const JoinMcqScreen = (props) => {
     }
 
     try {
-      const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${props.id}`;
+      const url = `http://backend.healthynomad.xyz:8080/api/mcqQuizzes/${props.id}`;
       const Credentials = { attempted };
       const { data: res } = await axios.patch(url, Credentials);
 

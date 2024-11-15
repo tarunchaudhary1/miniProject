@@ -35,7 +35,7 @@ const AddUser = (props) => {
   const { id } = useParams();
 
   const GetQuizId = () => {
-    const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {
@@ -54,7 +54,7 @@ const AddUser = (props) => {
   };
 
   const GetExistingUsers = () => {
-    const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {
@@ -71,14 +71,14 @@ const AddUser = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
-  const Alert =() =>{
-    alert("Record Updated Successfully")
-  }
+  const Alert = () => {
+    alert("Record Updated Successfully");
+  };
   const GetUsers = () => {
     //here we will get all employee data
-    const url = "http://backend.healthynomad:8080/api/users";
+    const url = "http://backend.healthynomad.xyz:8080/api/users";
     axios
       .get(url)
       .then((response) => {
@@ -122,11 +122,11 @@ const AddUser = (props) => {
   const handleAddUser = async (item) => {
     if (item) {
       try {
-        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
+        const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
         // console.log(url);
         // console.log(item);
         const Credentials = {
-          addUsers: item
+          addUsers: item,
         };
         const { data: res } = await axios.patch(url, Credentials);
         // console.log(`length`, existingArray.length);
@@ -146,67 +146,62 @@ const AddUser = (props) => {
     }
   };
   const handleAddAllUser = async () => {
-    
-      try {
-        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
-        const Credentials = {
-          addAllUsers: Data,
-          delAllUsers : []
-        };
-        const { data: res } = await axios.patch(url, Credentials);
-        // console.log(`length`, existingArray.length);
-        if (res.status === "SUCCESS") {
-          console.log("Users Added");
-          
-          GetExistingUsers();
-        }
-      } catch (error) {
-        if (
-          error.response &&
-          error.response.status >= 400 &&
-          error.response.status <= 500
-        ) {
-          setError(error.response.data.message);
-        }
+    try {
+      const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
+      const Credentials = {
+        addAllUsers: Data,
+        delAllUsers: [],
+      };
+      const { data: res } = await axios.patch(url, Credentials);
+      // console.log(`length`, existingArray.length);
+      if (res.status === "SUCCESS") {
+        console.log("Users Added");
+
+        GetExistingUsers();
       }
-    
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
   };
 
   const handleRemoveAllUser = async () => {
-   
-      try {
-        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
-       
+    try {
+      const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
 
-        const Credentials = {
-          addAllUsers : [],
-          delAllUsers: Data
-        };
-        const { data: res } = await axios.patch(url, Credentials);
-        console.log(res)
-        if (res.status === "SUCCESS") {
-          console.log("Users Removed");
-          
-          GetExistingUsers();
-        }
-      } catch (error) {
-        console.log("Users not Removed");
-        if (
-          error.response &&
-          error.response.status >= 400 &&
-          error.response.status <= 500
-        ) {
-          setError(error.response.data.message);
-        }
+      const Credentials = {
+        addAllUsers: [],
+        delAllUsers: Data,
+      };
+      const { data: res } = await axios.patch(url, Credentials);
+      console.log(res);
+      if (res.status === "SUCCESS") {
+        console.log("Users Removed");
+
+        GetExistingUsers();
       }
-    
+    } catch (error) {
+      console.log("Users not Removed");
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
   };
   const handleRemove = async (item) => {
     if (item) {
       try {
-        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
+        const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
         const Credentials = {
-          delUsers: item
+          delUsers: item,
         };
         const { data: res } = await axios.patch(url, Credentials);
 
@@ -229,8 +224,6 @@ const AddUser = (props) => {
   let right = <Badge bg="success">&#x2713;</Badge>;
   let wrong = <Badge bg="danger">X</Badge>;
 
-  
-
   useEffect(() => {
     // console.log(id);
     GetExistingUsers();
@@ -241,10 +234,9 @@ const AddUser = (props) => {
   return (
     <>
       <Sidebar />
-        <div className="tableContainer">
+      <div className="tableContainer">
         <h3 className="header-top my-2">Add Users</h3>
 
-       
         <div className="container my-table">
           <div className="mt-5 mb-4 display-row">
             <div>
@@ -258,36 +250,44 @@ const AddUser = (props) => {
                 />
               </form>
             </div>
-            <div style={{marginTop : "30px", marginLeft : "50px"}}>
-              
-                <Link to={`/quiz/comp_quiz_list`} className={theme ? "button_dark_success" : "button_light_success"} onClick={Alert}>Add Users</Link>
-            
+            <div style={{ marginTop: "30px", marginLeft: "50px" }}>
+              <Link
+                to={`/quiz/comp_quiz_list`}
+                className={
+                  theme ? "button_dark_success" : "button_light_success"
+                }
+                onClick={Alert}
+              >
+                Add Users
+              </Link>
             </div>
           </div>
-          <Table className={`table-hover table-bordered ${
-                theme ? "table-dark table-striped" : "table table-striped"
-              }`}>
+          <Table
+            className={`table-hover table-bordered ${
+              theme ? "table-dark table-striped" : "table table-striped"
+            }`}
+          >
             <thead>
               <tr>
-                <th><input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="flexCheckDefault"
-                          checked = {existingArray.length === Data.length}
-                          
-                          onChange={(event) => {
-                            
-                            if (event.target.checked) {
-                              console.log("✅ Checkbox is checked");
-                              handleAddAllUser()
-                            } else {
-                              console.log("⛔️ Checkbox is NOT checked");
-                              // setExistingArray([])
-                              handleRemoveAllUser()
-                            }
-                          }}
-                        /></th>
+                <th>
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                    checked={existingArray.length === Data.length}
+                    onChange={(event) => {
+                      if (event.target.checked) {
+                        console.log("✅ Checkbox is checked");
+                        handleAddAllUser();
+                      } else {
+                        console.log("⛔️ Checkbox is NOT checked");
+                        // setExistingArray([])
+                        handleRemoveAllUser();
+                      }
+                    }}
+                  />
+                </th>
                 <th>Sl. No.</th>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -308,7 +308,6 @@ const AddUser = (props) => {
                             (q) => q._id === item._id
                           )}
                           onChange={(event) => {
-                            
                             if (event.target.checked) {
                               console.log("✅ Checkbox is checked");
                               handleAddUser(item);
@@ -330,7 +329,6 @@ const AddUser = (props) => {
                 })}
             </tbody>
           </Table>
-          
         </div>
       </div>
     </>

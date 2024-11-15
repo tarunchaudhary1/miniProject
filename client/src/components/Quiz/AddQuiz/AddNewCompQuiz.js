@@ -39,7 +39,7 @@ function AddNewCompQuiz() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://backend.healthynomad:8080/api/compQuizzes";
+      const url = "http://backend.healthynomad.xyz:8080/api/compQuizzes";
       const Credentials = {
         name,
         desc,

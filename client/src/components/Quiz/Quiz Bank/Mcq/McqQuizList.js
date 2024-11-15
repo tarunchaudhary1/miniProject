@@ -84,7 +84,7 @@ const McqQuizList = () => {
 
   const GetMcqQuizData = () => {
     //here we will get all employee data
-    const url = "http://backend.healthynomad:8080/api/mcqQuizzes";
+    const url = "http://backend.healthynomad.xyz:8080/api/mcqQuizzes";
     axios
       .get(url)
       .then((response) => {
@@ -118,7 +118,7 @@ const McqQuizList = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://backend.healthynomad:8080/api/mcqQuizzes";
+      const url = "http://backend.healthynomad.xyz:8080/api/mcqQuizzes";
       const Credentials = {
         name,
         desc,
@@ -149,7 +149,7 @@ const McqQuizList = () => {
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
-      const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${id}`;
+      const url = `http://backend.healthynomad.xyz:8080/api/mcqQuizzes/${id}`;
       const Credentials = {
         name,
         desc,
@@ -178,7 +178,7 @@ const McqQuizList = () => {
   };
 
   const handleDelete = () => {
-    const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/mcqQuizzes/${id}`;
     axios
       .delete(url)
       .then((response) => {

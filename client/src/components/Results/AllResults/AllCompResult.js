@@ -68,7 +68,7 @@ const AllResultsList = () => {
 
   const GetResultData = () => {
     //here we will get all employee data
-    const url = "http://backend.healthynomad:8080/api/compResults";
+    const url = "http://backend.healthynomad.xyz:8080/api/compResults";
     axios
       .get(url)
       .then((response) => {

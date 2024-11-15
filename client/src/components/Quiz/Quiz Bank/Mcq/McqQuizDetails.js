@@ -15,7 +15,7 @@ const McqQuizDetails = (props) => {
 
   const {id} = useParams();
   const GetMCQQuizData = () => {
-    const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/mcqQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {

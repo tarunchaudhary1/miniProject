@@ -83,12 +83,12 @@ const ExpiredMcqList = () => {
   const theme = useTheme();
 
   const GetMcqQuizData = () => {
-    const url = "http://backend.healthynomad:8080/api/mcqQuizzes";
+    const url = "http://backend.healthynomad.xyz:8080/api/mcqQuizzes";
 
     //let _email = localStorage.getItem("email");
     let uID = localStorage.getItem("userid");
 
-    // const user_url = `http://backend.healthynomad:8080/api/users/${_email}`;
+    // const user_url = `http://backend.healthynomad.xyz:8080/api/users/${_email}`;
     // axios
     //   .get(user_url)
     //   .then((response) => {

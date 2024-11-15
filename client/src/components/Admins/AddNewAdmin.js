@@ -45,7 +45,7 @@ const Admin = () => {
 
     const GetAdminData = () => {
         //here we will get all employee data
-        const url = 'http://backend.healthynomad:8080/api/admin'
+        const url = 'http://backend.healthynomad.xyz:8080/api/admin'
         axios.get(url)
             .then(response => {
                 const result = response.data;
@@ -67,7 +67,7 @@ const Admin = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://backend.healthynomad:8080/api/admin";
+            const url = "http://backend.healthynomad.xyz:8080/api/admin";
             const Credentials = { firstName, lastName, contactNo, email, password }
             const { data: res } = await axios.post(url, Credentials);
 

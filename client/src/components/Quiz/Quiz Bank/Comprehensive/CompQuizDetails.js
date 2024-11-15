@@ -15,7 +15,7 @@ const CompQuizDetails = (props) => {
   const {id} = useParams();
   const GetCompQuizData = () => {
     //here we will get all employee data
-    const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/compQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {

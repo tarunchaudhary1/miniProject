@@ -67,7 +67,7 @@ function Userlist() {
   const GetUserData = () => {
     //here we will get all employee data
 
-    const url = "http://backend.healthynomad:8080/api/users";
+    const url = "http://backend.healthynomad.xyz:8080/api/users";
     axios
       .get(url)
       .then((response) => {
@@ -88,7 +88,7 @@ function Userlist() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://backend.healthynomad:8080/api/users";
+      const url = "http://backend.healthynomad.xyz:8080/api/users";
       const Credentials = { firstName, lastName, email, password };
       const { data: res } = await axios.post(url, Credentials);
 
@@ -110,7 +110,7 @@ function Userlist() {
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
-      const url = `http://backend.healthynomad:8080/api/users/${id}`;
+      const url = `http://backend.healthynomad.xyz:8080/api/users/${id}`;
       const Credentials = { firstName, lastName, email };
       const { data: res } = await axios.patch(url, Credentials);
 
@@ -130,7 +130,7 @@ function Userlist() {
   };
 
   const handleDelete = () => {
-    const url = `http://backend.healthynomad:8080/api/users/${id}`;
+    const url = `http://backend.healthynomad.xyz:8080/api/users/${id}`;
     axios
       .delete(url)
       .then((response) => {
