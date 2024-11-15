@@ -95,7 +95,7 @@ function nextPage() {
   const GetAdminData = () => {
     //here we will get all employee data
 
-    const url = "http://localhost:8080/api/admin";
+    const url = "http://backend.healthynomad:8080/api/admin";
     axios
       .get(url)
       .then((response) => {
@@ -116,7 +116,7 @@ function nextPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/admin";
+      const url = "http://backend.healthynomad:8080/api/admin";
       const Credentials = { firstName, lastName, contactNo, email, password };
       const { data: res } = await axios.post(url, Credentials);
 
@@ -138,7 +138,7 @@ function nextPage() {
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
-      const url = `http://localhost:8080/api/admin/${id}`;
+      const url = `http://backend.healthynomad:8080/api/admin/${id}`;
       const Credentials = { firstName, lastName, contactNo, email };
       const { data: res } = await axios.patch(url, Credentials);
 
@@ -158,7 +158,7 @@ function nextPage() {
   };
 
   const handleDelete = () => {
-    const url = `http://localhost:8080/api/admin/${id}`;
+    const url = `http://backend.healthynomad:8080/api/admin/${id}`;
     axios
       .delete(url)
       .then((response) => {

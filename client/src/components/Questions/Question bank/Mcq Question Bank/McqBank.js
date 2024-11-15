@@ -92,7 +92,7 @@ const MCQList = () => {
 
   const GetUserData = () => {
     //here we will get all employee data
-    const url = "http://localhost:8080/api/mcqQs";
+    const url = "http://backend.healthynomad:8080/api/mcqQs";
     axios
       .get(url)
       .then((response) => {
@@ -117,7 +117,7 @@ const MCQList = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/mcqQs";
+      const url = "http://backend.healthynomad:8080/api/mcqQs";
       let Credentials;
       switch (optionCount) {
         case "2":
@@ -189,7 +189,7 @@ const MCQList = () => {
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
-      const url = `http://localhost:8080/api/mcqQs/${id}`;
+      const url = `http://backend.healthynomad:8080/api/mcqQs/${id}`;
       const Credentials = {
         category,
         question,
@@ -217,7 +217,7 @@ const MCQList = () => {
   };
 
   const handleDelete = () => {
-    const url = `http://localhost:8080/api/mcqQs/${id}`;
+    const url = `http://backend.healthynomad:8080/api/mcqQs/${id}`;
     axios
       .delete(url)
       .then((response) => {

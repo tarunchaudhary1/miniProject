@@ -23,7 +23,7 @@ const EvaluateComp = () => {
   const { id } = useParams();
   const GetResultData = () => {
     //here we will get all employee data
-    const url = `http://localhost:8080/api/compResults/${id}`;
+    const url = `http://backend.healthynomad:8080/api/compResults/${id}`;
     axios
       .get(url)
       .then((response) => {
@@ -42,7 +42,7 @@ const EvaluateComp = () => {
           setMarks(data.obtainedMarks);
           //setEvaluationDetails(data.obtainedMarks);
           const quizId = data.quizid;
-          const url = `http://localhost:8080/api/compQuizzes/${quizId}`;
+          const url = `http://backend.healthynomad:8080/api/compQuizzes/${quizId}`;
           axios
             .get(url)
             .then((response) => {
@@ -70,7 +70,7 @@ const EvaluateComp = () => {
 
   // const GetQuizData = () => {
   //   //here we will get all employee data
-  //   const url = `http://localhost:8080/api/compQuizzes/${quizId}`;
+  //   const url = `http://backend.healthynomad:8080/api/compQuizzes/${quizId}`;
   //   axios
   //     .get(url)
   //     .then((response) => {
@@ -115,7 +115,7 @@ const EvaluateComp = () => {
     const pass = percentage >= minPercentage ? true : false;
 
     try {
-      const url = `http://localhost:8080/api/compResults/${id}`;
+      const url = `http://backend.healthynomad:8080/api/compResults/${id}`;
       // console.log(url);
       // console.log(item);
       const Credentials = {

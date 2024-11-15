@@ -72,7 +72,7 @@ const DescriptiveList = () => {
 
   const GetQuestionData = () => {
     //here we will get all employee data
-    const url = "http://localhost:8080/api/compQs";
+    const url = "http://backend.healthynomad:8080/api/compQs";
     axios
       .get(url)
       .then((response) => {
@@ -94,7 +94,7 @@ const DescriptiveList = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/compQs";
+      const url = "http://backend.healthynomad:8080/api/compQs";
       const Credentials = { category, question, answer };
       const { data: res } = await axios.post(url, Credentials);
 
@@ -116,7 +116,7 @@ const DescriptiveList = () => {
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
-      const url = `http://localhost:8080/api/compQs/${id}`;
+      const url = `http://backend.healthynomad:8080/api/compQs/${id}`;
       const Credentials = { category, question, answer };
       const { data: res } = await axios.patch(url, Credentials);
 
@@ -136,7 +136,7 @@ const DescriptiveList = () => {
   };
 
   const handleDelete = () => {
-    const url = `http://localhost:8080/api/compQs/${id}`;
+    const url = `http://backend.healthynomad:8080/api/compQs/${id}`;
     axios
       .delete(url)
       .then((response) => {

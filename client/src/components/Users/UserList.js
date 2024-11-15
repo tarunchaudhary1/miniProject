@@ -67,7 +67,7 @@ function Userlist() {
   const GetUserData = () => {
     //here we will get all employee data
 
-    const url = "http://localhost:8080/api/users";
+    const url = "http://backend.healthynomad:8080/api/users";
     axios
       .get(url)
       .then((response) => {
@@ -88,7 +88,7 @@ function Userlist() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/users";
+      const url = "http://backend.healthynomad:8080/api/users";
       const Credentials = { firstName, lastName, email, password };
       const { data: res } = await axios.post(url, Credentials);
 
@@ -110,7 +110,7 @@ function Userlist() {
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
-      const url = `http://localhost:8080/api/users/${id}`;
+      const url = `http://backend.healthynomad:8080/api/users/${id}`;
       const Credentials = { firstName, lastName, email };
       const { data: res } = await axios.patch(url, Credentials);
 
@@ -130,7 +130,7 @@ function Userlist() {
   };
 
   const handleDelete = () => {
-    const url = `http://localhost:8080/api/users/${id}`;
+    const url = `http://backend.healthynomad:8080/api/users/${id}`;
     axios
       .delete(url)
       .then((response) => {
@@ -156,92 +156,90 @@ function Userlist() {
   return (
     <>
       <SideBar />
-      <h1><b>User List</b></h1>
+      <h1>
+        <b>User List</b>
+      </h1>
       <div className="format">
-      <div className=" mb-4">
-            <button
-              className={theme ? "button_dark" : "button_light"}
-              onClick={() => {
-                handlePostShow();
-              }}
-            >
-              Add New
-            </button>
-          </div>
-
-          <Table
-            className={`table-hover table-bordered ${
-              theme ? "table-dark table-striped" : "table table-striped"
-            }`}
+        <div className=" mb-4">
+          <button
+            className={theme ? "button_dark" : "button_light"}
+            onClick={() => {
+              handlePostShow();
+            }}
           >
-            <thead>
-              <tr>
-                <th>SI No.</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Action</th>
-                
+            Add New
+          </button>
+        </div>
+
+        <Table
+          className={`table-hover table-bordered ${
+            theme ? "table-dark table-striped" : "table table-striped"
+          }`}
+        >
+          <thead>
+            <tr>
+              <th>SI No.</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Data.map((item, index) => (
+              <tr key={item._id}>
+                <td>{index + 1}</td>
+                <td>{item.firstName}</td>
+                <td>{item.lastName}</td>
+                <td>{item.email}</td>
+                <td style={{ minWidth: 190 }}>
+                  <button
+                    className={`${
+                      theme ? "button_dark_small" : "button_light_small"
+                    }`}
+                    size="sm"
+                    onClick={() => {
+                      handleViewShow(SetRowData(item));
+                    }}
+                  >
+                    View
+                  </button>
+                  <button
+                    className={`${
+                      theme
+                        ? "button_dark_small_warning"
+                        : "button_light_small_warning"
+                    }`}
+                    size="sm"
+                    onClick={() => {
+                      handleEditShow(SetRowData(item), setId(item._id));
+                    }}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className={`${
+                      theme
+                        ? "button_dark_small_danger"
+                        : "button_light_small_danger"
+                    }`}
+                    size="sm"
+                    onClick={() => {
+                      handleViewShow(
+                        SetRowData(item),
+                        setId(item._id),
+                        setDelete(true)
+                      );
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {Data.map((item, index) => (
-                <tr key={item._id}>
-                  <td>{index + 1}</td>
-                  <td>{item.firstName}</td>
-                  <td>{item.lastName}</td>
-                  <td>{item.email}</td>
-                  <td style={{ minWidth: 190 }}>
-                    <button
-                      className={`${
-                        theme ? "button_dark_small" : "button_light_small"
-                      }`}
-                      size="sm"
-                      
-                      onClick={() => {
-                        handleViewShow(SetRowData(item));
-                      }}
-                    >
-                      View
-                    </button>
-                    <button
-                      className={`${
-                        theme
-                          ? "button_dark_small_warning"
-                          : "button_light_small_warning"
-                      }`}
-                      size="sm"
-                     
-                      onClick={() => {
-                        handleEditShow(SetRowData(item), setId(item._id));
-                      }}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className={`${
-                        theme
-                          ? "button_dark_small_danger"
-                          : "button_light_small_danger"
-                      }`}
-                      size="sm"
-                    
-                      onClick={() => {
-                        handleViewShow(
-                          SetRowData(item),
-                          setId(item._id),
-                          setDelete(true)
-                        );
-                      }}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        
+            ))}
+          </tbody>
+        </Table>
+
         {/* View Modal */}
         <div className="model-box-view">
           <Modal
@@ -492,8 +490,6 @@ function Userlist() {
           </Modal>
         </div>
       </div>
-          
-     
     </>
   );
 }

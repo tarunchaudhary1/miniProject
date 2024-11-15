@@ -34,7 +34,7 @@ const McqResult = (props) => {
   const handleSubmit = async (e) => {
     // e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/mcqResults";
+      const url = "http://backend.healthynomad:8080/api/mcqResults";
       const Credentials = {
         username,
         userid,

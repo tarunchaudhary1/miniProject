@@ -13,7 +13,7 @@ const JoinCompScreen = (props) => {
   const [Expiry, setExpiry] = useState([]);
   const GetCompQuizData = () => {
     
-    const url = `http://localhost:8080/api/compQuizzes/${props.id}`;
+    const url = `http://backend.healthynomad:8080/api/compQuizzes/${props.id}`;
     axios
       .get(url)
       .then((response) => {
@@ -85,7 +85,7 @@ const JoinCompScreen = (props) => {
     }
 
     try {
-      const url = `http://localhost:8080/api/compQuizzes/${props.id}`;
+      const url = `http://backend.healthynomad:8080/api/compQuizzes/${props.id}`;
       const Credentials = { attempted };
       const { data: res } = await axios.patch(url, Credentials);
 

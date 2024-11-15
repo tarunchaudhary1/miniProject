@@ -27,7 +27,7 @@ const AttemptMcq = () => {
   const {id} = useParams();
   const GetMcqQuizData = () => {
     
-    const url = `http://localhost:8080/api/mcqQuizzes/${id}`;
+    const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {

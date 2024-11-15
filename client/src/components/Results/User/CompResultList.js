@@ -68,7 +68,7 @@ const CompResult = () => {
 
   const GetResultData = () => {
     //here we will get all employee data
-    const url = "http://localhost:8080/api/compResults";
+    const url = "http://backend.healthynomad:8080/api/compResults";
 
     let uID = localStorage.getItem("userid");
 

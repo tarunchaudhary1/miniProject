@@ -21,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/authAdmin";
+      const url = "http://backend.healthynomad:8080/api/authAdmin";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", `${res.data}/admin`);
       localStorage.setItem("userid", `${res.userInfo._id}`);

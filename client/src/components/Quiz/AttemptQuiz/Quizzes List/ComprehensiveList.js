@@ -87,12 +87,12 @@ const CompList = () => {
 
   const GetMcqQuizData = () => {
 
-    const url = "http://localhost:8080/api/compQuizzes";
+    const url = "http://backend.healthynomad:8080/api/compQuizzes";
 
     //let _email = localStorage.getItem("email");
     let uID = localStorage.getItem("userid");
     
-    // const user_url = `http://localhost:8080/api/users/${_email}`;
+    // const user_url = `http://backend.healthynomad:8080/api/users/${_email}`;
     // axios
     //   .get(user_url)
     //   .then((response) => {

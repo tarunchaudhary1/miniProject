@@ -85,7 +85,7 @@ function nextPage() {
 /////
   const GetResultData = () => {
     //here we will get all employee data
-    const url = "http://localhost:8080/api/mcqResults";
+    const url = "http://backend.healthynomad:8080/api/mcqResults";
     axios
       .get(url)
       .then((response) => {

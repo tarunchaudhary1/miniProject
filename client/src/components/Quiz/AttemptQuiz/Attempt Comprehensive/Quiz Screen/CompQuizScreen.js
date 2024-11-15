@@ -125,7 +125,7 @@ const CompQuizScreen = (props) => {
   // const handleSubmit = async (e) => {
   //   // e.preventDefault();
   //   try {
-  //     const url = "http://localhost:8080/api/CompResults";
+  //     const url = "http://backend.healthynomad:8080/api/CompResults";
   //     const Credentials = {
   //       username,
   //       userid,

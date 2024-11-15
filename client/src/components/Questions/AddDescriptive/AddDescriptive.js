@@ -24,7 +24,7 @@ const Descriptive = (props) => {
     e.preventDefault();
     console.log(typeof optionCount);
     try {
-      const url = "http://localhost:8080/api/compQs";
+      const url = "http://backend.healthynomad:8080/api/compQs";
       let Credentials =
       {
         category : props.category,

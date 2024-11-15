@@ -13,7 +13,7 @@ const MCQ = (props) => {
     if (props.length >= 2) {
       if(item){
         try {
-          const url = `http://localhost:8080/api/mcqQuizzes/${props.quizId}`;
+          const url = `http://backend.healthynomad:8080/api/mcqQuizzes/${props.quizId}`;
           const Credentials = {
             delmcqQs: item,
           };

@@ -43,7 +43,7 @@ const MCQ = (props) => {
     console.log(question, option1,option2,option3,option4, correct);
     console.log(typeof optionCount)
     try {
-    const url = "http://localhost:8080/api/mcqQs";
+    const url = "http://backend.healthynomad:8080/api/mcqQs";
     let Credentials;
    switch (optionCount) {
       case "2":

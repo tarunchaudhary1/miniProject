@@ -17,7 +17,7 @@ const Comprehensive = (props) => {
     {
       if(item){
         try {
-          const url = `http://localhost:8080/api/compQuizzes/${props.quizId}`;
+          const url = `http://backend.healthynomad:8080/api/compQuizzes/${props.quizId}`;
           const Credentials = {
             delcompQs: item,
           };

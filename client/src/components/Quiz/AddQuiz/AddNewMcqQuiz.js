@@ -40,7 +40,7 @@ function AddNewMcqQuiz() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/mcqQuizzes";
+      const url = "http://backend.healthynomad:8080/api/mcqQuizzes";
       const Credentials = {
         name,
         desc,

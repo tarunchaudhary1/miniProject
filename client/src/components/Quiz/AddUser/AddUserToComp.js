@@ -35,7 +35,7 @@ const AddUser = (props) => {
   const { id } = useParams();
 
   const GetQuizId = () => {
-    const url = `http://localhost:8080/api/compQuizzes/${id}`;
+    const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {
@@ -54,7 +54,7 @@ const AddUser = (props) => {
   };
 
   const GetExistingUsers = () => {
-    const url = `http://localhost:8080/api/compQuizzes/${id}`;
+    const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
     axios
       .get(url)
       .then((response) => {
@@ -78,7 +78,7 @@ const AddUser = (props) => {
   }
   const GetUsers = () => {
     //here we will get all employee data
-    const url = "http://localhost:8080/api/users";
+    const url = "http://backend.healthynomad:8080/api/users";
     axios
       .get(url)
       .then((response) => {
@@ -122,7 +122,7 @@ const AddUser = (props) => {
   const handleAddUser = async (item) => {
     if (item) {
       try {
-        const url = `http://localhost:8080/api/compQuizzes/${id}`;
+        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
         // console.log(url);
         // console.log(item);
         const Credentials = {
@@ -148,7 +148,7 @@ const AddUser = (props) => {
   const handleAddAllUser = async () => {
     
       try {
-        const url = `http://localhost:8080/api/compQuizzes/${id}`;
+        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
         const Credentials = {
           addAllUsers: Data,
           delAllUsers : []
@@ -175,7 +175,7 @@ const AddUser = (props) => {
   const handleRemoveAllUser = async () => {
    
       try {
-        const url = `http://localhost:8080/api/compQuizzes/${id}`;
+        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
        
 
         const Credentials = {
@@ -204,7 +204,7 @@ const AddUser = (props) => {
   const handleRemove = async (item) => {
     if (item) {
       try {
-        const url = `http://localhost:8080/api/compQuizzes/${id}`;
+        const url = `http://backend.healthynomad:8080/api/compQuizzes/${id}`;
         const Credentials = {
           delUsers: item
         };
