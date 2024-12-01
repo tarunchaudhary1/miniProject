@@ -1,0 +1,256 @@
+/* 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.login_container {
+	width: 100%;
+	min-height: 100vh;
+	background-color:  #e9ebee;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.login_form_container {
+	width: 430px;
+	height: 380px;
+	display: flex;
+	box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+		0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+}
+
+.left {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.form_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+
+.input {
+	outline: none;
+	border: none;
+	width: 370px;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: #edf5f3;
+	margin: 5px 0;
+	font-size: 14px;
+}
+
+.error_msg {
+	width: 370px;
+	padding: 15px;
+	margin: 5px 0;
+	font-size: 14px;
+	background-color: #f34646;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.form-check{
+	width: 100%	
+}
+
+
+
+
+
+
+
+
+
+
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mybody {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: 	#ffffff;
+}
+
+.mybody_dark {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #444444;
+  color: 	#ffffff;
+  /* border: 1px solid #f5f2e9; */
+}
+
+.login {
+  width: 30%;
+  height: fit-content;
+  min-width: fit-content;
+  /* padding: 20px 40px; */
+  border-radius: 23px;
+  border: 0.02px solid rgb(177, 175, 175);
+  padding: 3rem 5% 6rem;
+  /* background-color: aliceblue; */
+}
+
+.login_dark {
+  width: 30%;
+  height: fit-content;
+  min-width: fit-content;
+  /* padding: 20px 40px; */
+  border-radius: 23px;
+  border: 0.02px solid rgb(177, 175, 175);
+  padding: 3rem 5% 6rem;
+  background-color: rgb(45, 45, 45);
+}
+
+.error_msg {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0;
+  font-size: 14px;
+  background-color: #f34646;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* .login h1 {
+    font-size: 36px;
+    margin-bottom: 25px;
+} */
+
+.Newtext {
+  margin-right: 20rem;
+}
+
+.login form {
+  font-size: 1.2rem;
+}
+
+.login form .form-group {
+  margin-bottom: 12px;
+}
+.login_dark form .form-group {
+  margin-bottom: 12px;
+}
+
+.login .form-group input {
+  border-radius: 50px;
+  padding: 1rem;
+}
+
+.login_dark .form-group input {
+  border-radius: 50px;
+  padding: 1rem;
+  background: transparent;
+  color: white;
+}
+
+.login form input[type="submit"] {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  border: 2px solid rgb(42, 144, 222);
+  background: none;
+  color: rgb(42, 144, 222);
+}
+.login form input[type="submit"]:hover {
+  color: white;
+  background-color: rgb(42, 144, 222);
+}
+.login_dark form input[type="submit"] {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  border: 2px solid rgb(42, 144, 222);
+  background: none;
+  color: white;
+}
+.login_dark form input[type="submit"]:hover {
+  /* font-size: 20px;
+  margin-top: 1rem;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  border: 2px solid rgb(42, 144, 222); */
+  background: rgb(42, 144, 222);
+  color: white;
+}
+.login_dark form .form-check input {
+  margin: 1px 10px;
+}
+.login_dark form .form-check input {
+  margin: 1px 10px;
+}
+
+#login_h2 {
+  text-align: center;
+  margin: 2rem;
+}
+
+/* .login-container{
+	background: #e9ebee;
+	border: 2px solid red;
+	
+} */
+
+
+
+#input_area{
+  background: transparent;
+}
+
+
+.search_bar{
+  border: 2px solid #9dbfd8;
+  background : none;
+  border-radius: 33px;
+  padding: 0.8rem 1.5rem;
+  margin: 1rem 2rem 0rem;
+ 
+}
+
+.no-outline:focus {
+  outline: none;
+  /* color: white; */
+}
+
+.search_bar_dark{
+  border: 2px solid #9dbfd8;
+  background : none;
+  border-radius: 33px;
+  padding: 0.8rem 1.5rem;
+  margin: 1rem 2rem 0rem;
+  color: white;
+  display: block;
+ 
+}
+
+.no-outline_dark:focus {
+  outline: none;
+  color: white;
+}

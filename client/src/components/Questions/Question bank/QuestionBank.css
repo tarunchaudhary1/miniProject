@@ -1,0 +1,104 @@
+:root {
+  --bg_light: 	#ffffff;
+  --bg_dark: #252831;
+  --bg_primary : #9dbfd8;
+  --bg_success : #5cb85c;
+  --bg_danger : #d9534f;
+  --bg_warning : #fd9400;
+}
+
+
+.display-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.addQuestionContainer .dropdown > button {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--bg_primary);
+  border-radius: 33px;
+  background : none;
+  margin-top: 1rem;
+  text-decoration: none;
+  color:var(--bg_primary) ;
+  }
+
+  .addQuestionContainer_dark .dropdown > button{
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--bg_primary);
+    border-radius: 33px;
+    background : none;
+    margin-top: 1rem;
+    text-decoration: none;
+    /* box-shadow: 0.1px 3px 3px gray; */
+  }
+
+  .addQuestionContainer_dark .dropdown > button:hover{
+    
+    color: white;
+   
+    background :var(--bg_primary);
+   
+    
+  }
+
+  .button_dark {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--bg_primary);
+    border-radius: 33px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: none;
+  }
+  .button_light {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--bg_primary);
+    color: var(--bg_primary);
+    /* background: var(--bg_primary);
+    color: white; */
+    border-radius: 33px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: none;
+  }
+  .button_dark_small {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--bg_primary);
+    border-radius: 33px;
+    color: white;
+    text-decoration: none;
+    background: none;
+    margin: 1px 2px;
+  }
+  .button_light_small {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--bg_primary);
+    border-radius: 33px;
+    background : none;
+    color: var(--bg_primary);
+    text-decoration: none;
+    margin: 1px 2px;
+  }
+  .button_dark:hover {
+    border-radius: 33px;
+    background-color: var(--bg_primary);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  .button_dark_small:hover {
+    border-radius: 33px;
+    background-color: var(--bg_primary);
+    color: white;
+    text-decoration: none;
+  }
+  .button_light_small:hover {
+    background-color: var(--bg_primary);
+    color: white;
+  }
+  .button_light:hover {
+    background-color: var(--bg_primary);
+    color: white;
+  }
+

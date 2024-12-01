@@ -1,0 +1,183 @@
+
+:root {
+    --bg_light: #ffffff;
+    --bg_dark: #252831;
+    --bg_primary : #9dbfd8;
+    --bg_success : #5cb85c;
+    --bg_danger : #d9534f;
+    --bg_warning : #fd9400;
+  }  
+
+.join-screen{
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+
+}
+
+.join-screen h2{
+    font-size: 25px;
+    color: #111;
+}
+
+.join-screen p{
+    max-width: 350px;
+    color: #555;
+}
+
+.progress-bar{
+    width: 0%;
+    height: 5px;
+}
+.progress-active{
+    animation: progress 10s linear ;
+}
+
+@keyframes progress {
+    0%{
+        width: 0%;
+        background : #555;
+    }
+    79%{
+        width: 79%;
+        background : #555;
+    }
+    80%{
+        width: 80%;
+        background : orangered;
+    }
+    100%{
+        width : 100%;
+        background : orangered;
+    }
+}
+.question-count {
+    margin: 20px 0px;
+    text-align: center;
+    font-size: 15px;
+    color: #555;
+}
+.question-count_dark {
+    margin: 20px 0px;
+    text-align: center;
+    font-size: 15px;
+    color: #c0c0c0;
+}
+.quiz-screen .question .main {
+    padding: 20px 40px;
+}
+.title span{
+   font-size: 15px;
+   color: #555;
+   font-weight: 600;
+}
+.title_dark span{
+   font-size: 15px;
+   color: #cacaca;
+   font-weight: 600;
+}
+
+.title p{
+    margin-top: 5px;
+    color: #111;
+}
+.title_dark p{
+    margin-top: 5px;
+    color: #f3f3f3;
+}
+.options {
+    margin: 40px 0px 20px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+/* .quiz-screen .question .main .options .option {
+    width: calc(50% - 20px);
+    border: 1px solid #bbb;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+
+.option{
+    width: calc(50% - 20px);
+    border: 1px solid #bbb;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.active{
+   background: var(--bg_primary);
+    color: #fff;
+}
+.control {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid #eee;
+}
+
+.clock{
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(270deg,#051817,#0e3839) ;
+    height: 180px;
+    width: 350px;
+    color: #06f1f6;
+    text-shadow: 1px 1px 7px;
+    border-radius: 15px;
+    border: 2px solid silver;
+    box-shadow: 0 0 5px 25px;
+}
+
+.clock section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.clock section p {
+    font-size: 4rem;
+}
+
+.clock section small{
+    color: silver;
+    text-shadow: none;
+}
+
+.end {
+    height: 15rem;
+    display: flex;
+    /* border: solid greenyellow; */
+}
+.proctor {
+    position: sticky;
+    height: fit-content;
+    /* border: solid red; */
+    /* bottom: 0%; */
+    align-self:flex-end;
+}
+.next {
+    position: sticky;
+    align-items: flex-end;
+    width: fit-content;
+    left: 100%;
+    /* right: 0; */
+    /* border: solid#111; */
+}
+
