@@ -19,23 +19,23 @@ router.post("/", async (req, res) => {
     }
     console.log("first4");
 
-    const validPassword = await bcrypt.compare(
-      req.body.password,
-      admin.password
-    );
+    // const validPassword = await bcrypt.compare(
+    //   req.body.password,
+    //   admin.password
+    // );
     console.log("first5");
 
-    if (!validPassword)
-      return res.status(401).send({ message: "Invalid Email or Password" });
-    console.log("first6");
+    if (admin.password===req.body.password){
+      res.status(200).send({
+        data: token,
+        userInfo: admin,
+        message: "logged in successfully",
+      });
+    }
 
     const token = admin.generateAuthToken();
     console.log("here");
-    res.status(200).send({
-      data: token,
-      userInfo: admin,
-      message: "logged in successfully",
-    });
+   
     console.log("first7");
   } catch (error) {
     res.status(500).send({ message: "Internal Server Error" });

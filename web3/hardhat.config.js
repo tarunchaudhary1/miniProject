@@ -1,6 +1,6 @@
 /** @type import('hardhat/config').HardhatUserConfig */
 const PRIVATE_KEY =
-  "2d041360b03fdde44bfc595f200e7fbf1f10ebce40abff4ac66c3a17c92f9ffe";
+  "0c009643f6b00f74b452c02ff26cf24f40e08f4695b967866c2f5276b00c9fa7";
 const RPC_URL =
   "https://polygon-amoy.g.alchemy.com/v2/3eRv_Ti5lTvq-TnLGYm2hgfAHLEZ9GEs";
 
